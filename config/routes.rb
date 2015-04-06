@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  
+  resources :sessions, only: [:new, :create, :destroy]
+
   resources :recyclers
 
  root 'static#home'
+ get '/sign-in' => 'sessions#new'
+ delete '/sign-out' => 'sessions#destroy'
  get  '/about' => 'static#about'
  get '/cat-pictures(/:number_of_cats)' => 'static#cats', as: :cat_pictures
 

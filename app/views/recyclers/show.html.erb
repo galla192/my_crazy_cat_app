@@ -39,6 +39,9 @@
   <strong>Accepts color seperated glass:</strong>
   <%= @recycler.accepts_color_seperated_glass %>
 </p>
-
+<% if user_signed_in? %>
 <%= link_to 'Edit', edit_recycler_path(@recycler) %> |
 <%= link_to 'Back', recyclers_path %>
+<% else %>
+<%= link_to 'Back', recyclers_path %>
+<% end %>
